@@ -1,14 +1,19 @@
 <script lang="ts">
   import type { IFeedbackitem } from "../types";
   import Card from "./ Card.svelte";
+  import { feedback } from "../stores";
   export let item: IFeedbackitem;
+
+  function handleDelete(id: Number) {
+    feedback.update((val) => val.filter((fb) => fb.id !== id));
+  }
 </script>
 
 <Card>
   <div class="num-display">
     {item.rating}
   </div>
-  <div class="close">X</div>
+  <button class="close" on:click={() => handleDelete(item.id)}>X</button>
   <p class="text-display">{item.text}</p>
 </Card>
 

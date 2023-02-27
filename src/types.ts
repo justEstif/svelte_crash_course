@@ -1,5 +1,5 @@
 export interface IFeedbackitem {
-  id: Number;
-  rating: Number;
+  id: number;
+  rating: number;
   text: string;
 }
